@@ -1,0 +1,50 @@
+<div>
+  <button style="margin: 5px;" class="btn btn-square btn-primary btn-sm" routerLink="/books/create">Add new book</button>
+  <p> Have <span>{{bookLength}}</span> books</p>
+</div>
+<div>
+  <table class="table table-hover">
+    <thead>
+    <tr>
+      <th scope="col">Num.</th>
+      <th scope="col">Title Book</th>
+      <th scope="col">Author</th>
+      <th scope="col">Edit</th>
+      <th scope="col">Delete</th>
+<!--      <th scope="col">Delete</th>-->
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let book of bookList; let i = index">
+      <td scope="row">{{i+1}}</td>
+      <td><a style="text-decoration: none;" [routerLink] = "['/books/info', book.id]">{{book.title}}</a></td>
+      <td>{{book.author}}</td>
+      <td scope="row"><button class="btn btn-outline-danger" [routerLink] = "['/books/edit',book.id]" >Edit</button></td>
+<!--      <td><button class="btn btn-outline-danger" (click) = "deleteBookById(book.id)">Delete</button></td>-->
+      <td><button type="button" class="btn btn-outline-danger" data-toggle="modal" data-target="#myModal">Delete</button>
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Delete</h4>
+              </div>
+              <div class="modal-body">
+                <p>Are you want to remove?</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click) = "deleteBookById(book.id)">Accept</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>

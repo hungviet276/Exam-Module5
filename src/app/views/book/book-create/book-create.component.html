@@ -1,0 +1,29 @@
+<p>Add new Book!</p>
+<div>
+  <form [formGroup]="bookForm" (ngSubmit)="createNewBook()">
+    <div class="form-group">
+      <label>Title book</label>
+      <input title="text" class="form-control" formControlName="title" placeholder="Title">
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="bookForm.get('title').invalid && bookForm.get('title').touched">
+      Invalid title!
+    </div>
+    <div class="form-group">
+      <label>Author</label>
+      <input title="text" class="form-control" formControlName="author" placeholder="Author">
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="bookForm.get('author').invalid && bookForm.get('author').touched">
+      Invalid author!
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea class="form-control" formControlName="description" placeholder="Description"></textarea>
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="bookForm.get('description').invalid && bookForm.get('description').touched">
+      Invalid description!
+    </div>
+
+    <button style="margin: 5px;" class="btn btn-square btn-primary btn-sm" type="submit">Add book</button>
+    <button class="btn btn-square btn-primary btn-sm" routerLink="/books">Exit</button>
+  </form>
+</div>

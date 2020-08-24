@@ -1,0 +1,16 @@
+<form [formGroup]="editBookForm" (ngSubmit)="editBookById()">
+  <div class="form-group">
+    <label>Title book</label>
+    <input class="form-control" formControlName="title" type="text"  >
+  </div>
+  <div class="form-group">
+    <label>Author</label>
+    <input class="form-control" formControlName="author" type="text"  >
+  </div>
+  <div class="form-group">
+    <label>Description</label>
+    <textarea class="form-control" formControlName="description" ></textarea>
+  </div>
+  <button style="margin: 5px;" class="btn btn-square btn-primary btn-sm" type="submit">Update</button>
+  <button class="btn btn-square btn-secondary btn-sm" routerLink="/books">Exit</button>
+</form>
